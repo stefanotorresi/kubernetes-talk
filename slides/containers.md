@@ -29,7 +29,7 @@ Notes:
 
 ---
 
-It's a glorified chroot  
+#### It's a glorified `chroot`
 
 ![troll-face](assets/trollface.jpg)
 
