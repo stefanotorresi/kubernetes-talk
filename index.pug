@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Orchestrating containerized applications with Kubernetes
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui')
+    link(rel='stylesheet', href='node_modules/reveal.js/css/reveal.css')
+    link#theme(rel='stylesheet', href='node_modules/reveal.js/css/theme/white.css')
+    link(rel='stylesheet', href='css/custom.css')
+    // Code syntax highlighting
+    link(rel='stylesheet', href='node_modules/reveal.js/lib/css/zenburn.css')
+    link(rel='stylesheet', href='node_modules/font-awesome/css/font-awesome.min.css')
+    // Printing and PDF exports
+    script.
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'node_modules/reveal.js/' + (window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css');
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    //if lt IE 9
+      script(src='node_modules/reveal.js/lib/js/html5shiv.js')
+  body
+    .reveal
+      // Any section element inside of this container is displayed as a slide
+      .slides
+        - var slides = [ 'intro', 'containers', 'orchestration', 'kubernetes' ]
+        each slide in slides
+          section(
+            data-markdown="slides/"+slide+".md"
+            data-separator="^\n------\n$"
+            data-separator-vertical="^\n---\\n$"
+            data-charset="utf-8"
+            data-element-attributes="{_\s*?([^}]+?)}"
+          )
+
+    script(src='node_modules/reveal.js/lib/js/head.min.js')
+    script(src='node_modules/reveal.js/js/reveal.js')
+    script.
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        mouseWheel: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast',
+        // Optional reveal.js plugins
+        dependencies: [
+          {
+            src: 'node_modules/reveal.js/lib/js/classList.js',
+            condition: function() { return !document.body.classList; }
+          },
+          {
+            src: 'node_modules/reveal.js/plugin/markdown/marked.js',
+            condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+          },
+          {
+            src: 'node_modules/reveal.js/plugin/markdown/markdown.js',
+            condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+          },
+          {
+            src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
+            async: true,
+            callback: function() { hljs.initHighlightingOnLoad(); }
+          },
+          {
+            src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js',
+            async: true
+          },
+          {
+            src: 'node_modules/reveal.js/plugin/notes/notes.js',
+            async: true
+          }
+        ]
+      });

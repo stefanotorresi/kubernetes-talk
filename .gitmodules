@@ -1,0 +1,3 @@
+[submodule "demo/php-hello"]
+	path = demo/php-hello
+	url = git@gitlab.com:stefanotorresi/php-hello.git
