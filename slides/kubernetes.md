@@ -26,6 +26,10 @@ John Wilkes (Principal Software Engineer @ Google) <sup>[link][gcp-podcast]</sup
 - Configuration over convention
 - Cluster centric
 
+<small>
+See also the [community repo](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)
+</small>
+
 Notes:
 - Borg was written in C++ instead.
 - The API is fully transparent, there are no hidden internal details. This allows a very high degree of flexibility.
@@ -72,7 +76,30 @@ Notes:
 
 ---
 
-#### Example
+### Installation
+
+These are only a few of the **many** ways to install K8S:
+
+- Minikube <sup>[1]</sup>
+- Kubeadm <sup>[2]</sup>
+- Kops <sup>[3]</sup>
+- Kubespray <sup>[4]</sup>
+- Various managed services like GKE
+
+  [1]: https://kubernetes.io/docs/getting-started-guides/minikube/
+  [2]: https://kubernetes.io/docs/setup/independent/install-kubeadm/
+  [3]: https://github.com/kubernetes/kops
+  [4]: https://github.com/kubernetes-incubator/kubespray
+
+Notes:
+- Minikube is a hypervised single-node installation.
+- Kubeadm does not officially support HA master setup, so etcd backups are required.
+- Kubeadm has a DinD variant, but it's not production-ready.
+- Kops and Kubespray are both installers for cloud providers. The latter is based on Ansible playbooks.
+
+---
+
+### Usage
 
 ```shell
 $ kubectl create -f nginx-deployment.yml
@@ -121,3 +148,7 @@ $ kubectl get deployments
 NAME                 DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment     10        10        10           10          50s
 ```
+
+---
+
+## Demo time!

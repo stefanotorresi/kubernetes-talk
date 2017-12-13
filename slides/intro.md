@@ -19,6 +19,4 @@ with
 
 ## Disclaimer
 
-Opinions are my own.
-
-I'm not a systems engineer.<!-- {_class="fragment fade"} -->
+I'm not a systems engineer.
