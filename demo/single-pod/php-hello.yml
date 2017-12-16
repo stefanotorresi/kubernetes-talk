@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: fpm
-        image: gcr.io/kubernetes-talk-188915/php-hello-fpm:1.0
+        image: gitlab.com/stefanotorresi/php-hello/fpm
         ports:
         - containerPort: 9000
       - name: nginx
-        image: gcr.io/kubernetes-talk-188915/php-hello-nginx:1.0
+        image: gitlab.com/stefanotorresi/php-hello/nginx
         ports:
         - containerPort: 80
 ---

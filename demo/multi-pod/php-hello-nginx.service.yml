@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-hello
+  name: php-hello-nginx
   labels:
     app: php-hello
+    tier: frontend
 spec:
   ports:
     - port: 80

@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/kubernetes-talk-188915/php-hello-nginx:1.0
+        image: gitlab.com/stefanotorresi/php-hello/nginx
         ports:
         - containerPort: 80
         env:
