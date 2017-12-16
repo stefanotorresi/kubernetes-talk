@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: php-hello
+  labels:
+    app: php-hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: php-hello
+  template:
+    metadata:
+      labels:
+        app: php-hello
+    spec:
+      containers:
+      - name: fpm
+        image: gcr.io/kubernetes-talk-188915/php-hello-fpm:1.0
+        ports:
+        - containerPort: 9000
+      - name: nginx
+        image: gcr.io/kubernetes-talk-188915/php-hello-nginx:1.0
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-hello
+  labels:
+    app: php-hello
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: php-hello
+  type: LoadBalancer

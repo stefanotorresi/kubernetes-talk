@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: php-hello-nginx
+  labels:
+    app: php-hello
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: php-hello
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: php-hello
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: gcr.io/kubernetes-talk-188915/php-hello-nginx:1.0
+        ports:
+        - containerPort: 80
+        env:
+        - name: PHP_FPM_HOST
+          value: php-hello-fpm

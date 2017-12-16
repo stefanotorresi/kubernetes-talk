@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: php-hello-fpm
+  labels:
+    app: php-hello
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: php-hello
+      tier: backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: php-hello
+        tier: backend
+    spec:
+      containers:
+      - name: fpm
+        image: gcr.io/kubernetes-talk-188915/php-hello-fpm:1.0
+        ports:
+        - containerPort: 9000

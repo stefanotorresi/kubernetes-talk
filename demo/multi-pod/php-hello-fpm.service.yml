@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-hello-fpm
+  labels:
+    app: php-hello
+    tier: backend
+spec:
+  ports:
+    - port: 9000
+  selector:
+    app: php-hello
+    tier: backend
+  type: ClusterIP
