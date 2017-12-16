@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: fpm
-        image: gitlab.com/stefanotorresi/php-hello/fpm
+        image: registry.gitlab.com/stefanotorresi/php-hello/fpm
         ports:
         - containerPort: 9000
       - name: nginx
-        image: gitlab.com/stefanotorresi/php-hello/nginx
+        image: registry.gitlab.com/stefanotorresi/php-hello/nginx
         ports:
         - containerPort: 80
 ---

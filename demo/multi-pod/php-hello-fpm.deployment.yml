@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: fpm
-        image: gitlab.com/stefanotorresi/php-hello/fpm
+        image: registry.gitlab.com/stefanotorresi/php-hello/fpm
         ports:
         - containerPort: 9000
